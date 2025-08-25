@@ -1,0 +1,4 @@
+test_calculator.html
+*.tmp
+*.log
+.DS_Store

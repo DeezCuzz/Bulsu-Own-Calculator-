@@ -161,6 +161,14 @@ class GradeCalculator {
         return sum / scores.length;
     }
 
+    // Calculate normalized average (converts scores to 100-point scale)
+    calculateNormalizedAverage(scores, maxScore = 100) {
+        if (scores.length === 0) return 0;
+        const normalizedScores = scores.map(score => (score / maxScore) * 100);
+        const sum = normalizedScores.reduce((total, score) => total + score, 0);
+        return sum / normalizedScores.length;
+    }
+
     getLetterGrade(numericGrade) {
         if (numericGrade >= 97) return 'A+';
         else if (numericGrade >= 93) return 'A';
@@ -212,10 +220,10 @@ class GradeCalculator {
         const midtermExam = parseFloat(document.getElementById('midtermExam').value) || 0;
         const finalExam = parseFloat(document.getElementById('finalExam').value) || 0;
 
-        // Calculate averages
-        const activityAvg = this.calculateAverage(activityScores);
-        const performanceAvg = this.calculateAverage(performanceScores);
-        const recitationAvg = this.calculateAverage(recitationScores);
+        // Calculate normalized averages (convert all to 100-point scale)
+        const activityAvg = this.calculateNormalizedAverage(activityScores, 30);
+        const performanceAvg = this.calculateNormalizedAverage(performanceScores, 100);
+        const recitationAvg = this.calculateNormalizedAverage(recitationScores, 20);
 
         // Get percentages
         const activityPercent = parseFloat(document.getElementById('activitiesPercent').value) / 100;
