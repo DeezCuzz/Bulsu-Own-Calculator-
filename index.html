@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Ceejay  Own Calcuu</h1>
+            <p></p>
+        </header>
+
+        <div class="calculator-wrapper">
+            <!-- Configuration Section -->
+            <div class="config-section">
+                <h2>Configuration</h2>
+                <div class="config-grid">
+                    <div class="config-item">
+                        <label for="activitiesCount">Number of Activities:</label>
+                        <input type="number" id="activitiesCount" min="0" max="20" value="3">
+                    </div>
+                    <div class="config-item">
+                        <label for="performancesCount">Number of Performances:</label>
+                        <input type="number" id="performancesCount" min="0" max="20" value="2">
+                    </div>
+                    <div class="config-item">
+                        <label for="recitationsCount">Number of Recitations:</label>
+                        <input type="number" id="recitationsCount" min="0" max="20" value="4">
+                    </div>
+                    <div class="config-item">
+                        <button id="generateInputs" class="btn-primary">Generate Input Fields</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Percentage Configuration -->
+            <div class="percentage-section">
+                <h2>Grade Percentages</h2>
+                <div class="percentage-grid">
+                    <div class="percentage-item">
+                        <label for="activitiesPercent">Activities (%):</label>
+                        <input type="number" id="activitiesPercent" min="0" max="100" value="25">
+                    </div>
+                    <div class="percentage-item">
+                        <label for="performancesPercent">Performances (%):</label>
+                        <input type="number" id="performancesPercent" min="0" max="100" value="25">
+                    </div>
+                    <div class="percentage-item">
+                        <label for="examPercent">Exam (%):</label>
+                        <input type="number" id="examPercent" min="0" max="100" value="30">
+                    </div>
+                    <div class="percentage-item">
+                        <label for="recitationsPercent">Recitations (%):</label>
+                        <input type="number" id="recitationsPercent" min="0" max="100" value="20">
+                    </div>
+                </div>
+                <div class="percentage-total">
+                    <span>Total: <span id="totalPercentage">100</span>%</span>
+                </div>
+            </div>
+
+            <!-- Input Sections -->
+            <div class="inputs-container">
+                <!-- Activities Section -->
+                <div class="input-section">
+                    <h3>Activities</h3>
+                    <div id="activitiesInputs" class="inputs-grid"></div>
+                </div>
+
+                <!-- Performances Section -->
+                <div class="input-section">
+                    <h3>Performances</h3>
+                    <div id="performancesInputs" class="inputs-grid"></div>
+                </div>
+
+                <!-- Exam Section -->
+                <div class="input-section">
+                    <h3>Exams</h3>
+                    <div class="exam-inputs">
+                        <div class="input-item">
+                            <label for="midtermExam">Mid-term Exam:</label>
+                            <input type="number" id="midtermExam" min="0" max="100" step="0.1">
+                        </div>
+                        <div class="input-item">
+                            <label for="finalExam">Final Exam:</label>
+                            <input type="number" id="finalExam" min="0" max="100" step="0.1">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recitations Section -->
+                <div class="input-section">
+                    <h3>Recitations</h3>
+                    <div id="recitationsInputs" class="inputs-grid"></div>
+                </div>
+            </div>
+
+            <!-- Calculate Button -->
+            <div class="calculate-section">
+                <button id="calculateGrades" class="btn-calculate">Calculate Grades</button>
+                <button id="clearAll" class="btn-secondary">Clear All</button>
+            </div>
+
+            <!-- Results Section -->
+            <div class="results-section" id="resultsSection">
+                <h2>Results</h2>
+                <div class="results-grid">
+                    <div class="result-card">
+                        <h3>Mid-term Grade</h3>
+                        <div class="grade-display">
+                            <span id="midtermGrade">--</span>
+                            <span class="grade-letter" id="midtermLetter">--</span>
+                        </div>
+                    </div>
+                    <div class="result-card">
+                        <h3>Final Grade</h3>
+                        <div class="grade-display">
+                            <span id="finalGrade">--</span>
+                            <span class="grade-letter" id="finalLetter">--</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Breakdown -->
+                <div class="breakdown-section">
+                    <h3>Grade Breakdown</h3>
+                    <div id="gradeBreakdown" class="breakdown-content"></div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>ALAB BulSu.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
